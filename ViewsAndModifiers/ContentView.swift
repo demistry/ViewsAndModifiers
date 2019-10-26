@@ -8,10 +8,24 @@
 
 import SwiftUI
 
+struct LargeFontBlue : ViewModifier{
+    func body(content : Content)-> some View{
+        content.font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View{
+    func applyLargeBlue() -> some View{
+        self.modifier(LargeFontBlue())
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        Text("Hello There").applyLargeBlue()
     }
+           
 }
 
 struct ContentView_Previews: PreviewProvider {
